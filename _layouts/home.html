@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">Journalism Society</h1>
+      <nav class="nav">
+        <a href="/">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="founders">
+      <h2>Leadership</h2>
+      <div class="founders-grid">
+        <div class="founder-card">
+          <img src="/assets/img/founders/shaheen.jpg" alt="Shaheen Townsend">
+          <div>
+            <h3>Shaheen Townsend</h3>
+            <p>Founder • Editor</p>
+          </div>
+        </div>
+        <div class="founder-card">
+          <img src="/assets/img/founders/cofounder.jpg" alt="Co-Founder">
+          <div>
+            <h3>Co-Founder</h3>
+            <p>Co-Founder • Editor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="articles">
+      <h2>Latest Articles</h2>
+      <div class="article-grid">
+        {% for post in site.posts %}
+        <a class="article-card" href="{{ post.url }}">
+          <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+          <div class="article-card-body">
+            <div class="meta">{{ post.category }} • {{ post.date | date: "%b %d, %Y" }}</div>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+</body>
+</html>
